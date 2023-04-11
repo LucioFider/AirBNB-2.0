@@ -9,7 +9,7 @@ import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
 
 export const metadata = {
-  title: "Airbnb 2.0",
+  title: "Sello",
   description: "Creating a clone of Airbnb webapp",
 };
 
