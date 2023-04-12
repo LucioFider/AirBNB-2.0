@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import Container from "../Container";
 import { BsSnow } from "react-icons/bs";
 import { FaSkiing } from "react-icons/fa";
