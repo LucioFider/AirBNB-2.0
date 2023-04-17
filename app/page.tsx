@@ -1,14 +1,16 @@
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
+import getListings from "./actions/getListings"
 
 export default function Home() {
+  const listings = await getListings();
   const isEmpty = true;
 
   if (isEmpty) {
     return (
       <ClientOnly>
-        <EmptyState />
+        <EmptyState showReset />
       </ClientOnly>
     );
   }
