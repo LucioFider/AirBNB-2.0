@@ -5,6 +5,11 @@ import { SafeUser } from "@/app/types";
 import useCountries from "@/app/hooks/useCountries";
 import Avatar from "../Avatar";
 import ListingCategory from "./ListingCategory";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("../Map"), {
+  ssr: false,
+});
 
 interface ListingInfoProps {
   user: SafeUser;
@@ -57,6 +62,9 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         />
       )}
       <hr />
+      <div className="text-lg font-light text-neutral-500">{description}</div>
+      <hr />
+      <Map center={coordinates} />
     </div>
   );
 };
