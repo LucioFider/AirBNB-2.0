@@ -1,10 +1,8 @@
 "use client";
 
-import { Reservation } from "@prisma/client";
-
 import { toast } from "react-hot-toast";
 import { Range } from "react-date-range";
-import { SafeListing, SafeUser } from "@/app/types";
+import { SafeListing, SafeUser, SafeReservation } from "@/app/types";
 import { useMemo, useState, useCallback, useEffect } from "react";
 import { categories } from "@/app/components/navbar/Categories";
 import Container from "@/app/components/Container";
@@ -23,7 +21,7 @@ const initialDateRange = {
 };
 
 interface ListingClientProps {
-  reservations?: Reservation[];
+  reservations?: SafeReservation[];
   listing: SafeListing & {
     user: SafeUser;
   };
