@@ -39,7 +39,7 @@ const Search = () => {
     }
 
     return "Any Week";
-  }, []);
+  }, [startDate, endDate]);
 
   const guestLabel = useMemo(() => {
     if (guestCount) {
