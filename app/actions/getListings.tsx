@@ -15,12 +15,12 @@ export default async function getListings(params: IListingsParams) {
   try {
     const {
       userId,
-      guestCount,
       roomCount,
+      guestCount,
       bathroomCount,
+      locationValue,
       startDate,
       endDate,
-      locationValue,
       category,
     } = params;
 
@@ -39,11 +39,13 @@ export default async function getListings(params: IListingsParams) {
         gte: +roomCount,
       };
     }
+
     if (guestCount) {
       query.guestCount = {
         gte: +guestCount,
       };
     }
+
     if (bathroomCount) {
       query.bathroomCount = {
         gte: +bathroomCount,
@@ -80,11 +82,12 @@ export default async function getListings(params: IListingsParams) {
       },
     });
 
-    const SafeListings = listings.map((listing) => ({
+    const safeListings = listings.map((listing) => ({
       ...listing,
       createdAt: listing.createdAt.toISOString(),
     }));
-    return SafeListings;
+
+    return safeListings;
   } catch (error: any) {
     throw new Error(error);
   }
